@@ -2,12 +2,16 @@ version: '3'
 
 services:
   web:
-    build: .
+    image: bhuvi17/discord-app
     ports:
       - "8000:8000"
     volumes:
-      - .:/app
+      - app-volume:/app
     environment:
       - VIRTUAL_ENV=envname
     command: sh -c "pip install -r requirements.txt && python manage.py runserver 0.0.0.0:8000"
+
+    
+volumes:
+  app-volume:
 
